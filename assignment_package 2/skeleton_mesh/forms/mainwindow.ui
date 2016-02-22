@@ -1,0 +1,864 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>846</width>
+    <height>537</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>OpenGLDemo</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="MyGL" name="mygl">
+    <property name="geometry">
+     <rect>
+      <x>11</x>
+      <y>11</y>
+      <width>618</width>
+      <height>432</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>450</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Load OBJ</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_JSON">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>450</y>
+      <width>113</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Load JSON</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_meshSkinning">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>480</y>
+      <width>141</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Skin Mesh (Linear)</string>
+    </property>
+   </widget>
+   <widget class="QFrame" name="frame">
+    <property name="geometry">
+     <rect>
+      <x>630</x>
+      <y>10</y>
+      <width>211</width>
+      <height>501</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="MyTreeWidget" name="treeWidget">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>191</width>
+       <height>271</height>
+      </rect>
+     </property>
+     <column>
+      <property name="text">
+       <string notr="true">1</string>
+      </property>
+     </column>
+    </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>290</y>
+       <width>111</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Current Rotation</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>310</y>
+       <width>59</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>X Axis</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>340</y>
+       <width>59</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Y Axis</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>370</y>
+       <width>59</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Z Axis</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_5">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>310</y>
+       <width>59</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_6">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>340</y>
+       <width>59</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_7">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>370</y>
+       <width>51</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="xSubPushButton">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>310</y>
+       <width>41</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>-5</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="xAddPushButton">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>310</y>
+       <width>41</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>+5</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="ySubButton">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>340</y>
+       <width>41</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>-5</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="zSubPushButton">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>370</y>
+       <width>41</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>-5</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="yAddPushButton">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>340</y>
+       <width>41</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>+5</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="zAddPushButton">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>370</y>
+       <width>41</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>+5</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_8">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>390</y>
+       <width>81</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Translations</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_9">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>410</y>
+       <width>59</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>X</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_10">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>440</y>
+       <width>61</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Y</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_11">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>470</y>
+       <width>59</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Z</string>
+     </property>
+    </widget>
+    <widget class="QDoubleSpinBox" name="xSpinBox">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>410</y>
+       <width>67</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="minimum">
+      <double>-1000.000000000000000</double>
+     </property>
+     <property name="maximum">
+      <double>1000.000000000000000</double>
+     </property>
+    </widget>
+    <widget class="QDoubleSpinBox" name="ySpinBox">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>440</y>
+       <width>67</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="minimum">
+      <double>-1000.000000000000000</double>
+     </property>
+     <property name="maximum">
+      <double>10000.000000000000000</double>
+     </property>
+    </widget>
+    <widget class="QDoubleSpinBox" name="zSpinBox">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>470</y>
+       <width>67</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="minimum">
+      <double>-10000.000000000000000</double>
+     </property>
+     <property name="maximum">
+      <double>10000.000000000000000</double>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>846</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionQuit"/>
+   </widget>
+   <addaction name="menuFile"/>
+  </widget>
+  <action name="actionQuit">
+   <property name="text">
+    <string>Quit</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>MyGL</class>
+   <extends>QOpenGLWidget</extends>
+   <header>mygl.h</header>
+   <slots>
+    <signal>sig_sendRoot(QTreeWidgetItem*)</signal>
+    <signal>sig_nodeGeom(ShaderProgram::Drawable*)</signal>
+    <signal>sig_rename(QString)</signal>
+    <slot>slot_LoadOBJ()</slot>
+    <slot>slot_LoadJSON()</slot>
+    <slot>slot_skinMesh()</slot>
+    <slot>slot_addNewNode()</slot>
+    <slot>slot_changeGeom(int)</slot>
+    <slot>slot_changeColor(int)</slot>
+    <slot>slot_changeNameString(QString)</slot>
+    <slot>slot_rename()</slot>
+    <slot>slot_changeCurrentNode(QTreeWidgetItem*)</slot>
+    <slot>slot_update()</slot>
+    <slot>slot_updateCurrentJoint(Joint*)</slot>
+    <slot>slot_moveMesh()</slot>
+    <slot>slot_linearBlend()</slot>
+    <slot>slot_dualQuat()</slot>
+   </slots>
+  </customwidget>
+  <customwidget>
+   <class>MyTreeWidget</class>
+   <extends>QTreeWidget</extends>
+   <header>scene/mytreewidget.h</header>
+   <slots>
+    <signal>sig_xRot(double)</signal>
+    <signal>sig_yRot(double)</signal>
+    <signal>sig_zRot(double)</signal>
+    <signal>sig_newTrans(int)</signal>
+    <signal>sig_xTrans(double)</signal>
+    <signal>sig_yTrans(double)</signal>
+    <signal>sig_zTrans(double)</signal>
+    <signal>sig_update()</signal>
+    <signal>sig_changeCurrent(Joint*)</signal>
+    <signal>sig_moveMesh()</signal>
+    <slot>slot_newRootNode(QTreeWidgetItem*)</slot>
+    <slot>slot_addChildNode(ShaderProgram::Drawable*)</slot>
+    <slot>slot_rename(QString)</slot>
+    <slot>slot_removeSingleChild()</slot>
+    <slot>slot_removeAllChildren()</slot>
+    <slot>slot_changeCurrentJoint()</slot>
+    <slot>slot_changeXTrans(double)</slot>
+    <slot>slot_changeYTrans(double)</slot>
+    <slot>slot_changeZTrans(double)</slot>
+    <slot>slot_xAdd()</slot>
+    <slot>slot_xSub()</slot>
+    <slot>slot_yAdd()</slot>
+    <slot>slot_ySub()</slot>
+    <slot>slot_zAdd()</slot>
+    <slot>slot_zSub()</slot>
+   </slots>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>mygl</receiver>
+   <slot>slot_LoadOBJ()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>85</x>
+     <y>479</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>85</x>
+     <y>399</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_JSON</sender>
+   <signal>clicked()</signal>
+   <receiver>mygl</receiver>
+   <slot>slot_LoadJSON()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>158</x>
+     <y>481</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>165</x>
+     <y>301</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_meshSkinning</sender>
+   <signal>clicked()</signal>
+   <receiver>mygl</receiver>
+   <slot>slot_skinMesh()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>56</x>
+     <y>513</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>85</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>mygl</sender>
+   <signal>sig_sendRoot(QTreeWidgetItem*)</signal>
+   <receiver>treeWidget</receiver>
+   <slot>slot_newRootNode(QTreeWidgetItem*)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>597</x>
+     <y>206</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>677</x>
+     <y>206</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>treeWidget</sender>
+   <signal>currentItemChanged(QTreeWidgetItem*,QTreeWidgetItem*)</signal>
+   <receiver>treeWidget</receiver>
+   <slot>slot_changeCurrentJoint()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>707</x>
+     <y>248</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>715</x>
+     <y>120</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>treeWidget</sender>
+   <signal>sig_xTrans(double)</signal>
+   <receiver>xSpinBox</receiver>
+   <slot>setValue(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>707</x>
+     <y>286</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>710</x>
+     <y>465</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>treeWidget</sender>
+   <signal>sig_yTrans(double)</signal>
+   <receiver>ySpinBox</receiver>
+   <slot>setValue(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>762</x>
+     <y>279</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>710</x>
+     <y>495</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>treeWidget</sender>
+   <signal>sig_zTrans(double)</signal>
+   <receiver>zSpinBox</receiver>
+   <slot>setValue(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>732</x>
+     <y>289</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>715</x>
+     <y>525</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>xSubPushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>treeWidget</receiver>
+   <slot>slot_xSub()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>705</x>
+     <y>362</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>704</x>
+     <y>237</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>xAddPushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>treeWidget</receiver>
+   <slot>slot_xAdd()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>809</x>
+     <y>354</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>788</x>
+     <y>225</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ySubButton</sender>
+   <signal>clicked()</signal>
+   <receiver>treeWidget</receiver>
+   <slot>slot_ySub()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>716</x>
+     <y>392</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>716</x>
+     <y>241</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>yAddPushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>treeWidget</receiver>
+   <slot>slot_yAdd()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>810</x>
+     <y>392</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>786</x>
+     <y>227</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>zSubPushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>treeWidget</receiver>
+   <slot>slot_zSub()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>701</x>
+     <y>422</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>694</x>
+     <y>229</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>zAddPushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>treeWidget</receiver>
+   <slot>slot_zAdd()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>814</x>
+     <y>422</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>790</x>
+     <y>268</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>treeWidget</sender>
+   <signal>sig_xRot(double)</signal>
+   <receiver>label_5</receiver>
+   <slot>setNum(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>736</x>
+     <y>292</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>747</x>
+     <y>356</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>treeWidget</sender>
+   <signal>sig_yRot(double)</signal>
+   <receiver>label_6</receiver>
+   <slot>setNum(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>732</x>
+     <y>281</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>731</x>
+     <y>387</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>treeWidget</sender>
+   <signal>sig_zRot(double)</signal>
+   <receiver>label_7</receiver>
+   <slot>setNum(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>757</x>
+     <y>181</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>762</x>
+     <y>422</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>treeWidget</sender>
+   <signal>sig_update()</signal>
+   <receiver>mygl</receiver>
+   <slot>slot_update()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>810</x>
+     <y>160</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>512</x>
+     <y>157</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>xSpinBox</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>treeWidget</receiver>
+   <slot>slot_changeXTrans(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>710</x>
+     <y>465</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>666</x>
+     <y>302</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ySpinBox</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>treeWidget</receiver>
+   <slot>slot_changeYTrans(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>710</x>
+     <y>495</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>657</x>
+     <y>258</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>zSpinBox</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>treeWidget</receiver>
+   <slot>slot_changeZTrans(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>733</x>
+     <y>522</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>733</x>
+     <y>229</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>treeWidget</sender>
+   <signal>sig_zRot(double)</signal>
+   <receiver>label_7</receiver>
+   <slot>setNum(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>814</x>
+     <y>285</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>759</x>
+     <y>422</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>treeWidget</sender>
+   <signal>sig_changeCurrent(Joint*)</signal>
+   <receiver>mygl</receiver>
+   <slot>slot_updateCurrentJoint(Joint*)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>705</x>
+     <y>50</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>568</x>
+     <y>50</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>treeWidget</sender>
+   <signal>sig_moveMesh()</signal>
+   <receiver>mygl</receiver>
+   <slot>slot_moveMesh()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>765</x>
+     <y>170</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>470</x>
+     <y>170</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_meshSkinning</sender>
+   <signal>clicked()</signal>
+   <receiver>mygl</receiver>
+   <slot>slot_linearBlend()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>112</x>
+     <y>519</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>154</x>
+     <y>326</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

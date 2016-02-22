@@ -1,0 +1,5 @@
+Help Log
+
+Had trouble drawing the wireframe joints- my issue was that i was rotating the indices around the same axis that the point was on. Trung helped me in office hours.
+
+Had help from Adam understanding the Skin Deformation multiplcations.

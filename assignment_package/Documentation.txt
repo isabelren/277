@@ -1,0 +1,54 @@
+3.6 Documentation
+
+Use the LoadJSON button to upload a JSON file.
+When a json skeleton is added, the joints will be black and the parent joint will be at the blue end while the child joint is at the red end. Selected joints are green.
+
+The Skin Mesh button calls the skinning function that assigns joint weights based on distance.
+
+Joints can be manipulated by selecting in the QTreeWidget, and pressing buttons to rotate or using the spin boxes to translate.
+
+
+
+3.7 Conceptual Questions
+
+Allocating data on the stack does not require users to malloc data. All it is doing is moving a stack pointer, while allocating to the heap requires finding a free chunk of memory, which is a more complex procedure.
+
+With linear blending, volume is not preserved well. Rotating a skinned mesh using linear blending can cause vertex connections to be crossed, which causes the form to collapse. This happens because linearly interpolating a rotation matrix no longer represents sin/cosin outputs.
+
+given: vertex v
+int numFaces = 0;
+HE1 = arbitrary half edge that points to vertex v
+if (HE1.Face != NULL) {
+  numFaces++;
+  HE = HE1.next.symmetric
+} else {
+  HE = HE1.next.symmetric; //starting with a half edge that definitely has a face
+}
+
+while (HE != HE1) {
+
+if (HE.vertex == v && HE.Face != NULL) {
+    numFaces++;
+    HE = HE.next.symmetric
+  }
+
+  //if HE.Face is null, we go to the symmetric edge and find where the null face in the other direction is
+  if (HE.Face == NULL) {
+    HE = H1.symmetric
+
+    while (HE.Face != NULL) {
+      newStartHE = HE.next
+      while (newStartHE.next != HE) {
+        newStartHE = newStartHE.next
+      }
+      HE = newStartHE.symmetric
+    }
+    //HE.Face is now null; we go to symmetric half edge and start process again until we reach H1
+    HE = HE.next;
+
+  }
+}
+
+One can debug a GLSL shader by outputting something on the screen so that the user can visually see what the shader is doing. In the vertex shader example, the user can change the color of particular vertices influenced by a particular joint, or try to move only those vertices influenced by that joint.
+
+return numFaces;

@@ -1,0 +1,76 @@
+{
+  "root":
+  {
+    "name": "Head",
+    "pos": [0, 2, 0],
+    "rot": [0, 1, 0, 0],
+    "children": [
+      {
+        "name": "Torso",
+        "pos": [0, -1, 0],
+        "rot": [0, 1, 0, 0],
+        "children": [
+            {
+            "name": "Right Shoulder",
+            "pos": [-0.60, 0.10, 0],
+            "rot": [0, 1, 0, 0],
+            "children": [
+              {
+              "name": "Right Hand",
+              "pos": [-1, 0, 0],
+              "rot": [0, 1, 0, 0],
+              "children": []
+              }
+            ]
+            },
+            {
+            "name": "Left Shoulder ",
+            "pos": [0.60, 0.10, 0],
+            "rot": [0, 1, 0, 0],
+            "children": [
+              {
+              "name": "Left Hand ",
+              "pos": [1, 0, 0],
+              "rot": [0, 1, 0, 0],
+              "children": []
+              }
+            ]
+            },
+          {
+            "name": "Belly",
+            "pos": [0, -0.75, 0],
+            "rot": [0, 1, 0, 0],
+            "children": [
+              {
+              "name": "Right Hip",
+              "pos": [-0.40, -0.40, 0],
+              "rot": [0, 1, 0, 0],
+              "children": [
+                {
+                "name": "Right foot",
+                "pos": [0, -1, 0],
+                "rot": [0, 1, 0, 0],
+                "children": []
+                }
+              ]
+              },
+              {
+              "name": "Left Hip",
+              "pos": [0.40, -0.40, 0],
+              "rot": [0, 1, 0, 0],
+              "children": [
+              {
+                "name": "Left foot",
+                "pos": [0, -1, 0],
+                "rot": [0, 1, 0, 0],
+                "children": []
+                }
+              ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
