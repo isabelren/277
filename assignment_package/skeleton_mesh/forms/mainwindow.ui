@@ -844,21 +844,5 @@
     </hint>
    </hints>
   </connection>
-  <connection>
-   <sender>pushButton_meshSkinning</sender>
-   <signal>clicked()</signal>
-   <receiver>mygl</receiver>
-   <slot>slot_linearBlend()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>112</x>
-     <y>519</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>154</x>
-     <y>326</y>
-    </hint>
-   </hints>
-  </connection>
  </connections>
 </ui>

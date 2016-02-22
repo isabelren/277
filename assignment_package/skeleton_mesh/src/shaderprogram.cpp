@@ -136,8 +136,8 @@ void ShaderProgram::draw(GLWidget277 &f, Drawable &d)
     if (attrPos != -1) prog.disableAttributeArray(attrPos);
     if (attrNor != -1) prog.disableAttributeArray(attrNor);
     if (attrCol != -1) prog.disableAttributeArray(attrCol);
-    if (attrInfluencers != -1) prog.disableAttributeArray(attrNor);
-    if (attrWeights != -1) prog.disableAttributeArray(attrCol);
+    if (attrInfluencers != -1) prog.disableAttributeArray(attrInfluencers);
+    if (attrWeights != -1) prog.disableAttributeArray(attrWeights);
 
     f.printGLErrorLog();
 }

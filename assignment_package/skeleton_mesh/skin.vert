@@ -43,16 +43,16 @@ void main()
     //get overall transform by getting value at index i, in the joint transforms matrix
     //get bind matrix bind_matrices[influencer_IDs[i]] * modelposition
 
-     vec4 transformedposition = modelposition;
+     //vec4 transformedposition = modelposition;
     //how to get influencer_IDs.size()??
-    for (int i = 0; i < 2; i++) {
+    /*for (int i = 0; i < 2; i++) {
         int idx = influencer_IDs[i];
         transformedposition = influencer_weights[i] * joint_transforms[idx] * bind_matrices[idx] * modelposition;
-    }
+    }*/
 
 
     fs_LightVec = u_Eye - modelposition;//   Compute the direction in which the light source lies
 
-    gl_Position = u_ViewProj * transformedposition;// gl_Position is a built-in variable of OpenGL which is used to render the final positions
+    gl_Position = u_ViewProj * modelposition;// gl_Position is a built-in variable of OpenGL which is used to render the final positions
                                              // of the geometry's vertices
 }

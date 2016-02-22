@@ -183,13 +183,14 @@ void Mesh::skinMesh(Skeleton* skeleton)
             //ADDING IDS FOR SHADER
             id.push_back(glm::vec2(skeleton->findID(jointToDistance[0].first), skeleton->findID(jointToDistance[1].first)));
             //ADDING WEIGHTS FOR SHADER
-            weights.push_back(glm::vec2(jointToDistance[0].second, jointToDistance[1].second));
+            weights.push_back(glm::vec2(jointToDistance[0].second/summedDistance, jointToDistance[1].second/summedDistance));
         } else if (skeleton->getChildrenCount() == 2) {
             //ADD TWO JOINTS
-            vertices[i].jointInfluences.insert(std::make_pair(skeleton->getChildAt(0), getDistance(i, skeleton->getChildAt(0))));
-            vertices[i].jointInfluences.insert(std::make_pair(skeleton->getChildAt(1), getDistance(i, skeleton->getChildAt(1))));
+            float summedDistance = getDistance(i, skeleton->getChildAt(0)) + getDistance(i, skeleton->getChildAt(1));
+            vertices[i].jointInfluences.insert(std::make_pair(skeleton->getChildAt(0), getDistance(i, skeleton->getChildAt(0))/summedDistance));
+            vertices[i].jointInfluences.insert(std::make_pair(skeleton->getChildAt(1), getDistance(i, skeleton->getChildAt(1))/summedDistance));
             id.push_back(glm::vec2(0, 1));
-            weights.push_back(glm::vec2(getDistance(i, skeleton->getChildAt(0)), getDistance(i, skeleton->getChildAt(1))));
+            weights.push_back(glm::vec2(getDistance(i, skeleton->getChildAt(0))/getDistance(i, skeleton->getChildAt(0)), getDistance(i, skeleton->getChildAt(1))/summedDistance));
         }
     }
 
@@ -209,8 +210,7 @@ void Mesh::skinMesh(Skeleton* skeleton)
 
 void Mesh::linearBlendSkinning()
 {
-    /*
-    //this->destroy();
+/*
     if (skinned) {
         std::vector<glm::vec4> newPositions;
         for (int i = 0; i < vertices.size(); i++) {
@@ -269,84 +269,7 @@ void Mesh::linearBlendSkinning()
         bufNor.bind();
         bufNor.setUsagePattern(QOpenGLBuffer::StaticDraw);
         bufNor.allocate(nor.data(), nor.size() * sizeof(glm::vec4));
-    }*/
-
-}
-
-void Mesh::dualQuatSkinning()
-{
-    //this->destroy();
-    if (skinned) {
-        std::vector<glm::vec4> newPositions;
-        for (int i = 0; i < vertices.size(); i++) {
-            //each transformation slot will emit a signal to myGL that will call this function on the current mesh
-            //get the bind matrix
-            // get new transformation of joint
-            std::vector<glm::quat> quats;
-            std::vector<float> influences;
-
-            for ( auto it = vertices[i].jointInfluences.begin(); it != vertices[i].jointInfluences.end(); ++it ) {
-                float t = it->second;
-
-                //glm::quat q = it->first->get;
-                glm::mat4 m = (it->first->getOverallTransformation() * it->first->getBindMatrix()) ;
-                glm::quat q = glm::quat_cast(m);
-                influences.push_back(t);
-                quats.push_back(q);
-            }
-            //glm::quat dual = ((influences[0] * quats[0]) + (influences[1] * quats[1]))/glm::normalize(((influences[0] * quats[0]) + (influences[1] * quats[1])));
-
-            //why isn't this working? i am getting overall transformation, multiplying by bind matrix, multiplying by influence, etc
-            glm::quat dual = glm::normalize(((influences[0] * quats[0]) + (influences[1] * quats[1])));
-            glm::mat4 matTrans = glm::mat4_cast(dual);
-
-            glm::vec4 newPos = matTrans * glm::vec4(vertices[i].position, 1.0f);
-            newPositions.push_back(newPos);
-        }
-
-        std::vector<GLuint> idx;
-        std::vector<glm::vec4> pos;
-        std::vector<glm::vec4> nor;
-
-        GLuint index = 0;
-        for(Face f : faces)
-        {
-            glm::vec3 p0, p1, p2;
-            p0 = glm::vec3(newPositions[f.vertices[0]]);
-            p1 = glm::vec3(newPositions[f.vertices[1]]);
-            p2 = glm::vec3(newPositions[f.vertices[2]]);
-
-            //finding normal for each face
-            glm::vec3 e1 = p0 - p1;
-            glm::vec3 e2 = p1 - p2;
-            glm::vec4 n = glm::vec4(glm::cross(e1, e2), 0.0f);
-
-            for(int i = 0; i < 3; i++)
-            {
-                idx.push_back(index++);
-                pos.push_back(newPositions[f.vertices[i]]);
-                nor.push_back(n);
-            }
-        }
-
-        count = idx.size();
-
-        this->color = glm::vec4(1.0f, 0.5f, 0.75f, 1.0f);
-
-        bufIdx.create();
-        bufIdx.bind();
-        bufIdx.setUsagePattern(QOpenGLBuffer::StaticDraw);
-        bufIdx.allocate(idx.data(), idx.size() * sizeof(GLuint));
-
-        bufPos.create();
-        bufPos.bind();
-        bufPos.setUsagePattern(QOpenGLBuffer::StaticDraw);
-        bufPos.allocate(pos.data(), pos.size() * sizeof(glm::vec4));
-
-        bufNor.create();
-        bufNor.bind();
-        bufNor.setUsagePattern(QOpenGLBuffer::StaticDraw);
-        bufNor.allocate(nor.data(), nor.size() * sizeof(glm::vec4));
     }
-
+*/
 }
+

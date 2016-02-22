@@ -38,7 +38,6 @@ private:
     Mesh* mesh;
     Skeleton* skeleton;
     Joint* selectedJoint;
-    bool dual;
 
 public:
     explicit MyGL(QWidget *parent = 0);
@@ -59,8 +58,6 @@ public slots:
     void slot_update();
     void slot_updateCurrentJoint(Joint*);
     void slot_moveMesh();
-    void slot_dualQuat();
-    void slot_linearBlend();
 signals:
     void sig_sendRoot(QTreeWidgetItem*);
 };

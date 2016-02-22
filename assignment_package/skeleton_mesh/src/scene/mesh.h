@@ -34,7 +34,6 @@ public:
     float getDistance(int vertIdx, Joint* joint);
     bool skinned;
     void linearBlendSkinning();
-    void dualQuatSkinning();
 private:
     QVector<Face> faces;
     QVector<Vertex> vertices;

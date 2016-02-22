@@ -6,5 +6,7 @@
         <file>glsl/wire.vert.glsl</file>
         <file>deform.vert</file>
         <file>deform.frag</file>
+        <file>skin.vert</file>
+        <file>skin.frag</file>
     </qresource>
 </RCC>

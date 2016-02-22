@@ -198,7 +198,6 @@ public:
         QObject::connect(treeWidget, SIGNAL(sig_zRot(double)), label_7, SLOT(setNum(double)));
         QObject::connect(treeWidget, SIGNAL(sig_changeCurrent(Joint*)), mygl, SLOT(slot_updateCurrentJoint(Joint*)));
         QObject::connect(treeWidget, SIGNAL(sig_moveMesh()), mygl, SLOT(slot_moveMesh()));
-        QObject::connect(pushButton_meshSkinning, SIGNAL(clicked()), mygl, SLOT(slot_linearBlend()));
 
         QMetaObject::connectSlotsByName(MainWindow);
     } // setupUi

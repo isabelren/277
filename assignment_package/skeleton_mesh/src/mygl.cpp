@@ -56,7 +56,6 @@ void MyGL::initializeGL()
     vao.create();
     selectedJoint = nullptr;
     skeleton = nullptr;
-    dual = false;
     //Create the example sphere (you should delete this when you add your own code elsewhere)
     geom_cylinder.setColor(glm::vec4(1,0,0,1));
     geom_cylinder.create();
@@ -68,6 +67,7 @@ void MyGL::initializeGL()
     geom_joint.create();
 
     // Create and set up the diffuse shader
+
     prog_lambert.create(":/glsl/lambert.vert.glsl", ":/glsl/lambert.frag.glsl");
     // Create and set up the wireframe shader
     prog_wire.create(":/glsl/wire.vert.glsl", ":/glsl/wire.frag.glsl");
@@ -118,8 +118,6 @@ void MyGL::paintGL()
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     updateCamera();
 
-
-
     if(mesh != nullptr)
     {
         if (mesh->skinned) {
@@ -128,6 +126,7 @@ void MyGL::paintGL()
             for (int i = 0; i < this->skeleton->getChildrenCount(); i++) {
                 matrices[i] = la::to_qmat(this->skeleton->getChildAt(i)->getOverallTransformation());
             }
+            prog_skin.setModelMatrix(glm::mat4(1.0f));
             prog_skin.setTransMatrices(matrices);
             prog_skin.draw(*this, *mesh);
         } else {
@@ -257,16 +256,6 @@ void MyGL::slot_skinMesh() {
 
 }
 
-void MyGL::slot_dualQuat()
-{
-    dual = true;
-}
-
-void MyGL::slot_linearBlend()
-{
-    dual = false;
-}
-
 
 void MyGL::slot_updateCurrentJoint(Joint* j) {
     selectedJoint = j;
@@ -276,11 +265,7 @@ void MyGL::slot_updateCurrentJoint(Joint* j) {
 void MyGL::slot_moveMesh()
 {
     if (mesh != nullptr) {
-        if (!dual) {
-            this->mesh->linearBlendSkinning();
-        } else {
-            this->mesh->dualQuatSkinning();
-        }
+        this->mesh->linearBlendSkinning();
 
         update();
     }
